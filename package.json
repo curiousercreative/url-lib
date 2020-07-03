@@ -1,0 +1,34 @@
+{
+  "name": "@curiouser/url-lib",
+  "version": "0.1.0",
+  "description": "library of functions for generating, reversing and testing urls against templates",
+  "license": "UNLICENSED",
+  "repository": "github:curiousercreative/url-lib",
+  "main": "dist/lib/url/index.js",
+  "source": "src/lib/url/index.js",
+  "scripts": {
+    "build": "rm -rf ./dist/* && babel ./src --out-dir ./dist --ignore './src/**/*.test.js' --ignore './src/**/*.test.jsx' --ignore './src/**/__tests__/' --ignore './src/**/__mocks__/' --source-maps inline --keep-file-extension --copy-files",
+    "docs": "jsdoc -c ./jsdoc/conf.json -R ./jsdoc/README.md -r ./src",
+    "prepare": "yarn build",
+    "start": "jest",
+    "test": "jest",
+    "watch": "yarn build --watch"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.1",
+    "@babel/core": "^7.10.2",
+    "@babel/plugin-proposal-export-namespace-from": "^7.10.1",
+    "@babel/plugin-proposal-object-rest-spread": "^7.10.1",
+    "@babel/preset-env": "^7.10.2",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.6.0",
+    "eslint-plugin-jest": "^23.13.2",
+    "eslint-plugin-react": "^7.19.0",
+    "jest": "^24.9.0",
+    "jsdoc": "^3.6.4",
+    "jsdoc-memberof-namespace": "^2.2.0"
+  },
+  "files": [
+    "dist"
+  ]
+}
