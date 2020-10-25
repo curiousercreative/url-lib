@@ -6,9 +6,11 @@ import { VARIABLE_CHAR_WHITELIST, VARIABLE_REGEX } from './constants';
  * @return {array} of url param names
  */
 export function getParamsFromTemplate (template) {
-  return template
-    .match(VARIABLE_REGEX)
-    .map(kwarg => kwarg.replace(/^:/, ''));
+  const match = template.match(VARIABLE_REGEX);
+
+  return match
+    ? match.map(kwarg => kwarg.replace(/^:/, ''))
+    : [];
 }
 
 /**
@@ -19,8 +21,9 @@ export function getParamsFromTemplate (template) {
  */
 export function getKwargsFromUrl (template, url) {
   const regex = templateToRegExp(template);
+  const match = url.match(regex);
 
-  return url.match(regex).slice(1);
+  return match ? match.slice(1) : [];
 }
 
 /**
